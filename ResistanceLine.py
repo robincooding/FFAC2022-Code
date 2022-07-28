@@ -49,16 +49,12 @@ while stock != "quit":
         
     print()
 
-    # print(str(pivots))
-    # print(str(dates))
-
     timeD = dt.timedelta(days=30)   # to decide how long to plot that line for
 
     for index in range(len(pivots)):
         print(str(pivots[index]) + ": " + str(dates[index]))
  
-        plt.plot_date([dates[index], dates[index] + timeD], 
-        [pivots[index], pivots[index]], fmt=",-", linewidth=2)
+        plt.plot_date([dates[index], dates[index] + timeD], [pivots[index], pivots[index]], fmt=",-", linewidth=2)
         
     plt.show()
 

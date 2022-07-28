@@ -22,8 +22,10 @@ while stock != "quit":
     counter = 0
     lastPivot = 0
 
+    rangeInit = max(df['Low'])    # Range 초기화할 최댓값 
+
     # local minimum 10일 기준으로 계산
-    Range = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    Range = [rangeInit, rangeInit, rangeInit, rangeInit, rangeInit, rangeInit, rangeInit, rangeInit, rangeInit, rangeInit]
     dateRange = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     for i in df.index:
@@ -40,9 +42,6 @@ while stock != "quit":
         else:
             counter = 0
         if counter == 5:
-            if currentMin == 0:    # 리스트에 여전히 0이 존재 할 경우 
-                continue
- 
             lastPivot = currentMin
             dateloc = Range.index(lastPivot)
             lastDate = dateRange[dateloc]
